@@ -66,7 +66,7 @@ def docs_command(builder):
         "-b",
         builder,
         "docssrc/source",
-        f"docssrc/build/_build/{builder}",
+        "docssrc/build/_build/{}".format(builder),
     ]
 
 

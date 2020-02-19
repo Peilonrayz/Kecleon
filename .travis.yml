@@ -22,4 +22,4 @@ install:
   - pip install --upgrade pip setuptools
   - pip install . nox
 script:
-  - nox --non-interactive --session "$NOXSESSION"
+  - nox --session "$NOXSESSION"
