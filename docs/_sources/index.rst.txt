@@ -29,7 +29,10 @@ Rename
 GitHub documentation
 ++++++++++++++++++++
 
-Enable GitHub documentation in the project settings, after creating `docs/`.
+1. Ensure ``docs/`` has been pushed to GitHub.
+2. Enter project settings.
+3. Enable GitHub Pages.
+4. Ensure "*master branch /docs folder*" is selected.
 
 Structure
 ---------
