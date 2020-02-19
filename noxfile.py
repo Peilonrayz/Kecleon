@@ -3,12 +3,11 @@ from pprint import pprint
 
 import nox
 
-if False:
 
-    @nox.session(python=["2.7", "3.5", "3.6", "3.7", "3.8"])
-    def tests(session):
-        session.install(".", "pytest")
-        session.run("pytest")
+@nox.session(python=["3.4"])
+def tests(session):
+    session.install(".", "pytest")
+    session.run("pytest")
 
 
 @nox.session(python=["2.7", "3.5", "3.6", "3.7", "3.8"])
