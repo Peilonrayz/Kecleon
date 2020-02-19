@@ -54,8 +54,11 @@ def hint(session):
 
 @nox.session
 def lint(session):
-    session.install("nox", r"F:\Git\vox", "check-manifest")
-    session.run("check-manifest")
+    session.install("nox", "vox", "check-manifest")
+    # session.run("check-manifest")
+
+    # Delete NOXSESSION so vox can run on CI.
+    session.env.pop("NOXSESSION", None)
     session.run("nox", "-r", "-f", "noxfile-lint.py", "--", *session.posargs)
 
 
@@ -90,3 +93,5 @@ def docs_build(session):
     session.install(".", "sphinx", "sphinx_rtd_theme", "sphinx-autodoc-typehints")
     shutil.rmtree("docs/", ignore_errors=True)
     session.run("sphinx-build", "-b", "html", "docssrc/source", "docs", "-a")
+    shutil.rmtree("docs/_sources/", ignore_errors=True)
+    shutil.rmtree("docs/.doctrees/", ignore_errors=True)
