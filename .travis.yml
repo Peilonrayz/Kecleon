@@ -1,4 +1,5 @@
 language: python
+dist: xenial
 matrix:
   include:
     - python: 2.7
@@ -19,7 +20,6 @@ matrix:
       env: NOXSESSION="docs"
 install:
   - pip install --upgrade pip setuptools
-  - pip install .
+  - pip install . nox
 script:
-  - export TOX_SKIP_MISSING_INTERPRETERS="False"
-  - tox
+  - nox --non-interactive --session "$NOXSESSION"
