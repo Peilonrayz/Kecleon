@@ -1,8 +1,8 @@
 skeleton_py
 ===========
 
-.. image:: https://travis-ci.org/Peilonrayz/skeleton_py.svg?branch=master
-   :target: https://travis-ci.org/Peilonrayz/skeleton_py
+.. image:: https://travis-ci.com/Peilonrayz/skeleton_py.svg?branch=master
+   :target: https://travis-ci.com/Peilonrayz/skeleton_py
    :alt: Build Status
 
 About
