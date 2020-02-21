@@ -1,4 +1,4 @@
-skeleton_py
+Skeleton Py
 ===========
 
 .. image:: https://travis-ci.com/Peilonrayz/skeleton_py.svg?branch=master
@@ -37,4 +37,4 @@ To run all tests run ``nox``. No venv is needed; nox makes all of them for us.
 License
 -------
 
-skeleton_py is available under the MIT license.
+Skeleton Py is available under the MIT license.

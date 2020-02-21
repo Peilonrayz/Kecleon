@@ -1,4 +1,4 @@
-Welcome to Skeleton_py's documentation!
+Welcome to Skeleton Py's documentation!
 =======================================
 
 .. toctree::
