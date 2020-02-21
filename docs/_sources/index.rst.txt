@@ -1,4 +1,4 @@
-Welcome to Skeleton_py's documentation!
+Welcome to Skeleton Py's documentation!
 =======================================
 
 .. toctree::
@@ -19,9 +19,9 @@ Rename
 
     -   9 in ``READEME.rst``
     -   7 in ``setup.py``
-    -   1 in ``docs/source/conf.py``
-    -   10 in ``docs/source/index.rst``
-    -   1 in ``docs/source/main.rst``
+    -   1 in ``docssrc/source/conf.py``
+    -   10 in ``docssrc/source/index.rst``
+    -   1 in ``docssrc/source/main.rst``
     -   2 in ``src/skeleton_py/main.py``
     -   1 in ``tests/test_main.py``
     -   Directory ``src/skeleton_py``
