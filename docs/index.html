@@ -184,6 +184,14 @@
 <li><p>Ensure “<em>master branch /docs folder</em>” is selected.</p></li>
 </ol>
 </div>
+<div class="section" id="uploading-to-pypi">
+<h3>Uploading to PyPI<a class="headerlink" href="#uploading-to-pypi" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python -m pip install --user --upgrade setuptools twine wheel
+$ python setup.py sdist bdist_wheel
+$ python -m twine upload dist/*
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>

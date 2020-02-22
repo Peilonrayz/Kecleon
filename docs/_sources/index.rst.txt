@@ -34,6 +34,15 @@ GitHub documentation
 3. Enable GitHub Pages.
 4. Ensure "*master branch /docs folder*" is selected.
 
+Uploading to PyPI
++++++++++++++++++
+
+.. code:: shell
+
+   $ python -m pip install --user --upgrade setuptools twine wheel
+   $ python setup.py sdist bdist_wheel
+   $ python -m twine upload dist/*
+
 Structure
 ---------
 Tests
