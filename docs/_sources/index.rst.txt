@@ -10,6 +10,28 @@ Welcome to Skeleton Py's documentation!
 Installation
 ------------
 
+Download
+++++++++
+
+You should clone the repository so that any changes can be easily
+copied into the repository by using `git`. I think adding another
+branch to handle the interopt between skeleton_py and master can be a
+good way to keep future merges simpler. If the skeleton files are only
+changed in this branch.
+
+.. code::shell
+
+   git clone https://github.com/Peilonrayz/skeleton_py
+   mv skeleton_py [name]
+   cd [name]
+   git config push.default upstream
+   git remote add skeleton https://github.com/Peilonrayz/skeleton_py
+   git fetch skeleton
+   git checkout -b skeleton skeleton/master
+   git remote rm origin
+
+   git checkout -b skeleton-changes
+
 Rename
 ++++++
 
