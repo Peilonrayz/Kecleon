@@ -164,11 +164,24 @@ copied into the repository by using <cite>git</cite>. I think adding another
 branch to handle the interopt between skeleton_py and master can be a
 good way to keep future merges simpler. If the skeleton files are only
 changed in this branch.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/Peilonrayz/skeleton_py
+$ mv skeleton_py <span class="o">[</span>name<span class="o">]</span>
+$ <span class="nb">cd</span> <span class="o">[</span>name<span class="o">]</span>
+$ git config push.default upstream
+$ git remote add skeleton https://github.com/Peilonrayz/skeleton_py
+$ git fetch skeleton
+$ git checkout -b skeleton skeleton/master
+$ git remote rm origin
+
+$ git checkout -b skeleton-changes
+</pre></div>
+</div>
 </div>
 <div class="section" id="rename">
 <h3>Rename<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p>Replace <code class="docutils literal notranslate"><span class="pre">skeleton_py</span></code> with the name of the other app. I’ve tried my best future self, but some just have to exist! 😥</p>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">skeleton_py</span></code> with the name of the other app. I’ve tried
+my best future self, but some just have to exist! 😥</p>
 <p>Locations:</p>
 <ul class="simple">
 <li><p>9 in <code class="docutils literal notranslate"><span class="pre">READEME.rst</span></code></p></li>

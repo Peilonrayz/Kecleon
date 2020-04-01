@@ -19,34 +19,35 @@ branch to handle the interopt between skeleton_py and master can be a
 good way to keep future merges simpler. If the skeleton files are only
 changed in this branch.
 
-.. code::shell
+.. code:: shell
 
-   git clone https://github.com/Peilonrayz/skeleton_py
-   mv skeleton_py [name]
-   cd [name]
-   git config push.default upstream
-   git remote add skeleton https://github.com/Peilonrayz/skeleton_py
-   git fetch skeleton
-   git checkout -b skeleton skeleton/master
-   git remote rm origin
+   $ git clone https://github.com/Peilonrayz/skeleton_py
+   $ mv skeleton_py [name]
+   $ cd [name]
+   $ git config push.default upstream
+   $ git remote add skeleton https://github.com/Peilonrayz/skeleton_py
+   $ git fetch skeleton
+   $ git checkout -b skeleton skeleton/master
+   $ git remote rm origin
 
-   git checkout -b skeleton-changes
+   $ git checkout -b skeleton-changes
 
 Rename
 ++++++
 
--   Replace ``skeleton_py`` with the name of the other app. I've tried my best future self, but some just have to exist! 😥
+-  Replace ``skeleton_py`` with the name of the other app. I've tried
+   my best future self, but some just have to exist! 😥
 
-    Locations:
+   Locations:
 
-    -   9 in ``READEME.rst``
-    -   7 in ``setup.py``
-    -   1 in ``docssrc/source/conf.py``
-    -   10 in ``docssrc/source/index.rst``
-    -   1 in ``docssrc/source/main.rst``
-    -   2 in ``src/skeleton_py/main.py``
-    -   1 in ``tests/test_main.py``
-    -   Directory ``src/skeleton_py``
+   -   9 in ``READEME.rst``
+   -   7 in ``setup.py``
+   -   1 in ``docssrc/source/conf.py``
+   -   10 in ``docssrc/source/index.rst``
+   -   1 in ``docssrc/source/main.rst``
+   -   2 in ``src/skeleton_py/main.py``
+   -   1 in ``tests/test_main.py``
+   -   Directory ``src/skeleton_py``
 
 GitHub documentation
 ++++++++++++++++++++
@@ -72,15 +73,15 @@ Tests
 
 This goes on to run the following:
 
--   `pytest`_ to run the tests located in ``tests/``, with `coverage`_.
--   Builds a `coverage`_ report, located at ``htmlcov/index.html``.
--   Hint the project utilizing `isort`_ and `black`_.
--   Lint the project using `nox`_ and `vox`_.
--   Build documentation using `Sphinx`_, located at ``docs/main.html``.
+-  `pytest`_ to run the tests located in ``tests/``, with `coverage`_.
+-  Builds a `coverage`_ report, located at ``htmlcov/index.html``.
+-  Hint the project utilizing `isort`_ and `black`_.
+-  Lint the project using `nox`_ and `vox`_.
+-  Build documentation using `Sphinx`_, located at ``docs/main.html``.
 
-    -   Runs doctests.
-    -   Ensures links are not dead.
-    -   Auto documents type hints, via `sphinx-autodoc-typehints`_.
+   -   Runs doctests.
+   -   Ensures links are not dead.
+   -   Auto documents type hints, via `sphinx-autodoc-typehints`_.
 
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _coverage: https://coverage.readthedocs.io/
