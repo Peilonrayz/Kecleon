@@ -15,7 +15,7 @@ sys.path.insert(0, str(TLD))
 config = configparser.ConfigParser()
 config.read(TLD / "setup.cfg")
 
-project = "skeleton_py"
+project = "kecleon"
 author = "Peilonrayz"
 copyright = f"{datetime.datetime.now().year}, {author}"
 release = config.get("src", "version")

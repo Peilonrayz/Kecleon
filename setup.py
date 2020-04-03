@@ -13,7 +13,7 @@ config = configparser.ConfigParser()
 config.read("setup.cfg")
 
 setup(
-    name="skeleton_py",
+    name="kecleon",
     version=config.get("src", "version"),
     license="MIT",
     description="Skeleton for Python projects",
@@ -21,11 +21,11 @@ setup(
     long_description_content_type="text/x-rst",
     author="Peilonrayz",
     author_email="peilonrayz@gmail.com",
-    url="https://peilonrayz.github.io/skeleton_py",
+    url="https://peilonrayz.github.io/kecleon",
     project_urls={
-        "Bug Tracker": "https://github.com/Peilonrayz/skeleton_py/issues",
-        "Documentation": "https://peilonrayz.github.io/skeleton_py",
-        "Source Code": "https://github.com/Peilonrayz/skeleton_py",
+        "Bug Tracker": "https://github.com/Peilonrayz/kecleon/issues",
+        "Documentation": "https://peilonrayz.github.io/kecleon",
+        "Source Code": "https://github.com/Peilonrayz/kecleon",
     },
     packages=find_packages("src"),
     package_dir={"": "src"},
@@ -46,5 +46,5 @@ setup(
         "Programming Language :: Python :: 3.8",
     ],
     keywords="",
-    entry_points={"console_scripts": ["skeleton_py=skeleton_py.__main__:main"]},
+    entry_points={"console_scripts": ["kecleon=kecleon.__main__:main"]},
 )
