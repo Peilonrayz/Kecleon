@@ -2,4 +2,3 @@ Main
 ====
 
 .. automodule:: kecleon
-   :members:

@@ -6,16 +6,16 @@ import nox
 
 @nox.session(python=["3.4", "3.6"])
 def tests(session):
-    session.install("-e", ".")
-    session.install("pytest")
+    session.install("-e", ".[all]")
+    session.install("pytest", "responses")
     session.run("pytest")
 
 
-@nox.session(python=["2.7", "3.5", "3.6", "3.7", "3.8"])
+@nox.session(python=["3.5", "3.6", "3.7", "3.8"])
 def coverage(session):
     session.install("coverage>=5.0.0")
-    session.install("-e", ".")
-    session.install("pytest", "pytest-cov")
+    session.install("-e", ".[all]")
+    session.install("pytest", "pytest-cov", "responses")
     session.run(
         "pytest",
         "--cov=src",
@@ -88,16 +88,16 @@ def docs(session):
 
 @nox.session(python="3.8")
 def docs_test(session):
-    session.install(".", "sphinx", "sphinx_rtd_theme", "sphinx-autodoc-typehints")
+    session.install(".[all]", "sphinx", "sphinx_rtd_theme", "sphinx-autodoc-typehints")
     shutil.rmtree("docssrc/build/", ignore_errors=True)
-    session.run(*docs_command("doctest"))
-    session.run(*docs_command("linkcheck"))
-    session.run(*docs_command("html"))
+    session.run(*docs_command("doctest"), "-W")
+    session.run(*docs_command("linkcheck"), "-W")
+    session.run(*docs_command("html"), "-W")
     shutil.rmtree("docssrc/build/", ignore_errors=True)
 
 
 @nox.session(python="3.8")
 def docs_build(session):
-    session.install(".", "sphinx", "sphinx_rtd_theme", "sphinx-autodoc-typehints")
+    session.install(".[all]", "sphinx", "sphinx_rtd_theme", "sphinx-autodoc-typehints")
     shutil.rmtree("docs/", ignore_errors=True)
     session.run("sphinx-build", "-b", "html", "docssrc/source", "docs", "-a")

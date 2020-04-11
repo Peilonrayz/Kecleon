@@ -6,6 +6,9 @@ Welcome to Kecleon's documentation!
    :caption: Contents:
 
    main.rst
+   store.rst
+   base.rst
+   jobs.rst
 
 Indices and tables
 ==================

@@ -32,6 +32,11 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[],
+    extras_require={
+        "web": ["requests"],
+        "7z": ["pylzma"],
+        "all": ["requests", "pylzma"],
+    },
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Console",
