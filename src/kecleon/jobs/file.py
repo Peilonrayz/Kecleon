@@ -38,13 +38,17 @@ class FileItem(Item):
 class FileClerk(Clerk[str]):
     """Clerk for reading from the file system."""
 
+    def __init__(self, bytes: bool = False) -> None:
+        super().__init__()
+        self._bytes = bytes
+
     def has_item(self, value: str) -> bool:
         """Verify if the cache has the item."""
         return os.path.isfile(value)
 
     def get(self, value: str) -> FileItem:
         """Get the item from the cache."""
-        return FileItem(open(value))
+        return FileItem(open(value, 'rb' if self._bytes else 'r'))
 
     def set(self, value: str, item: Item) -> None:
         """Set the cache to the item."""
