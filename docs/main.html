@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Main &mdash; skeleton_py 0.0.0 documentation</title>
+  <title>Main &mdash; kecleon 0.0.1 documentation</title>
   
 
   
@@ -36,7 +36,8 @@
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Welcome to Skeleton Py’s documentation!" href="index.html" /> 
+    <link rel="next" title="Store" href="store.html" />
+    <link rel="prev" title="Welcome to Kecleon’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> skeleton_py
+            <a href="index.html" class="icon icon-home"> kecleon
           
 
           
@@ -83,6 +84,9 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="store.html">Store</a></li>
+<li class="toctree-l1"><a class="reference internal" href="base.html">Base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a></li>
 </ul>
 
             
@@ -97,7 +101,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">skeleton_py</a>
+          <a href="index.html">kecleon</a>
         
       </nav>
 
@@ -147,33 +151,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-skeleton_py">
-<span id="main"></span><h1>Main<a class="headerlink" href="#module-skeleton_py" title="Permalink to this headline">¶</a></h1>
-<p>Python Skeleton setup.</p>
-<dl class="function">
-<dt id="skeleton_py.main">
-<code class="sig-prename descclassname">skeleton_py.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skeleton_py.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>Testable function.</p>
-<p>Doctest format, for doc tests:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">skeleton_py</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
-<span class="go">&#39;Hello World!&#39;</span>
+  <div class="section" id="module-kecleon">
+<span id="main"></span><h1>Main<a class="headerlink" href="#module-kecleon" title="Permalink to this headline">¶</a></h1>
+<p>Kecleon; cacheing through a simple store interface.</p>
+<p>The design is based on a store where you only interact with one clerk.
+That clerk then goes off to get the items that you desire.
+This is similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Argos_(retailer)">Argos’</a>
+model for customer service.</p>
+<p>The clerk at the front desk only checks the warehouse for the item you
+want. If it’s not in the warehouse then they can check with a
+deliveries clerk if there are any that have yet to be unpacked.
+Finally if it’s not in deliveries then a transport clerk will be asked
+to get the product from another store into the current one. Finally if
+none are available then you’ll be instructed to come back another time.</p>
+<p>This contrived example can be easily mapped to this library. The first
+clerk could be a <a class="reference internal" href="jobs.html#kecleon.jobs.FileClerk" title="kecleon.jobs.FileClerk"><code class="xref py py-class docutils literal notranslate"><span class="pre">jobs.FileClerk</span></code></a>, the deliveries clerk can be
+a <a class="reference internal" href="jobs.html#kecleon.jobs.Zip7Clerk" title="kecleon.jobs.Zip7Clerk"><code class="xref py py-class docutils literal notranslate"><span class="pre">jobs.Zip7Clerk</span></code></a> and finally the transport clerk can be a
+<a class="reference internal" href="jobs.html#kecleon.jobs.WebClerk" title="kecleon.jobs.WebClerk"><code class="xref py py-class docutils literal notranslate"><span class="pre">jobs.WebClerk</span></code></a>.</p>
+<p>After defining how the store moves goods internally, we can focus on
+where each item comes from. The good we want could be always be stored
+in aisle 1, shelf 2. It’s deliveries stored in deliveries section A
+and finally always come from strore #2.</p>
+<p>In our example the item we want is post information, <code class="code docutils literal notranslate"><span class="pre">Posts.xml</span></code>.
+It’s stored in the following archive <code class="code docutils literal notranslate"><span class="pre">codereview.stackexchange.com.7z</span></code>
+and is available from <code class="code docutils literal notranslate"><span class="pre">https://archive.org/download/stackexchange/codereview.stackexchange.com.7z</span></code>.</p>
+<p>This would be simple to build with Kecleon.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kecleon</span> <span class="kn">import</span> <span class="n">Store</span><span class="p">,</span> <span class="n">FileClerk</span><span class="p">,</span> <span class="n">WebClerk</span>
+<span class="kn">from</span> <span class="nn">kecleon.jobs</span> <span class="kn">import</span> <span class="n">Zip7Clerk</span>
+
+<span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">(</span>
+    <span class="n">warehouse</span><span class="o">=</span><span class="n">FileClerk</span><span class="p">(),</span>
+    <span class="n">deliviers</span><span class="o">=</span><span class="n">Zip7Clerk</span><span class="p">(),</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">WebClerk</span><span class="p">(),</span>
+<span class="p">)</span>
+
+<span class="n">posts</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">warehouse</span><span class="o">=</span><span class="s1">&#39;.cache/codereview/Posts.xml&#39;</span><span class="p">,</span>
+    <span class="n">deliviers</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;.cache/codereview/codereview.stackexchange.com.7z&#39;</span><span class="p">,</span> <span class="s1">&#39;Posts.xml&#39;</span><span class="p">),</span>
+    <span class="n">provider</span><span class="o">=</span><span class="s1">&#39;https://archive.org/download/stackexchange/codereview.stackexchange.com.7z&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>Here is some code you can use:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">skeleton_py</span><span class="o">.</span><span class="n">main</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>Here is the tested output.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello World!
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+<p>A lot of the terminology maps to store related terms.</p>
+<dl class="simple">
+<dt>Clerk</dt><dd><p>An object that inherits from <a class="reference internal" href="base.html#kecleon.base.Clerk" title="kecleon.base.Clerk"><code class="xref py py-class docutils literal notranslate"><span class="pre">base.Clerk</span></code></a> and interacts
+with their department’s items.</p>
+</dd>
+<dt>Department</dt><dd><p>Each clerk works in a set department. In the above example the
+<a class="reference internal" href="jobs.html#kecleon.jobs.FileClerk" title="kecleon.jobs.FileClerk"><code class="xref py py-class docutils literal notranslate"><span class="pre">jobs.FileClerk</span></code></a> works in the <code class="docutils literal notranslate"><span class="pre">warehouse</span></code> department.</p>
+</dd>
+<dt>Location / Item</dt><dd><p>This is the location of the item. To be able to function properly
+clerks and departments needs to know where the item’s location is.</p>
 </dd>
 </dl>
-</dd></dl>
-
+<p>Kecleon allows importing some of the most common clerks from the top
+level package. Some clerks it doesn’t include. These are accessible
+from the <a class="reference internal" href="jobs.html#module-kecleon.jobs" title="kecleon.jobs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">kecleon.jobs</span></code></a> module. If this doesn’t include a clerk
+you need then you can build your own by extending the objects in
+<a class="reference internal" href="base.html#module-kecleon.base" title="kecleon.base"><code class="xref py py-mod docutils literal notranslate"><span class="pre">kecleon.base</span></code></a>.</p>
 </div>
 
 
@@ -184,8 +219,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="store.html" class="btn btn-neutral float-right" title="Store" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Skeleton Py’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Kecleon’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

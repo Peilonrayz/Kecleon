@@ -2,8 +2,8 @@
 
 import math
 import os.path
-import warnings
 import pathlib
+import warnings
 from typing import IO, AnyStr, Iterator
 
 import requests
@@ -48,7 +48,7 @@ class FileClerk(Clerk[str]):
 
     def get(self, value: str) -> FileItem:
         """Get the item from the cache."""
-        return FileItem(open(value, 'rb' if self._bytes else 'r'))
+        return FileItem(open(value, "rb" if self._bytes else "r"))
 
     def set(self, value: str, item: Item) -> None:
         """Set the cache to the item."""

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Kecleon’s documentation! &mdash; kecleon 0.0.1 documentation</title>
+  <title>Jobs &mdash; kecleon 0.0.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Main" href="main.html" /> 
+    <link rel="prev" title="Base" href="base.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> kecleon
+            <a href="index.html" class="icon icon-home"> kecleon
           
 
           
@@ -81,11 +81,15 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="main.html">Main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="store.html">Store</a></li>
 <li class="toctree-l1"><a class="reference internal" href="base.html">Base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#items">Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clerks">Clerks</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -100,7 +104,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">kecleon</a>
+          <a href="index.html">kecleon</a>
         
       </nav>
 
@@ -129,15 +133,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to Kecleon’s documentation!</li>
+      <li>Jobs</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/jobs.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,29 +154,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-kecleon-s-documentation">
-<h1>Welcome to Kecleon’s documentation!<a class="headerlink" href="#welcome-to-kecleon-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="main.html">Main</a></li>
-<li class="toctree-l1"><a class="reference internal" href="store.html">Store</a></li>
-<li class="toctree-l1"><a class="reference internal" href="base.html">Base</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="jobs.html#items">Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jobs.html#clerks">Clerks</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="module-kecleon.jobs">
+<span id="jobs"></span><h1>Jobs<a class="headerlink" href="#module-kecleon.jobs" title="Permalink to this headline">¶</a></h1>
+<p>Collection of common caching jobs.</p>
+<div class="section" id="items">
+<h2>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="kecleon.jobs.RawItem">
+<em class="property">class </em><code class="sig-prename descclassname">kecleon.jobs.</code><code class="sig-name descname">RawItem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span></em>, <em class="sig-param"><span class="n">warn</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kecleon.jobs.RawItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Item interface for raw text.</p>
+<p>This is useful if you need to update the cache externally.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="kecleon.jobs.WebItem">
+<em class="property">class </em><code class="sig-prename descclassname">kecleon.jobs.</code><code class="sig-name descname">WebItem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">request</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kecleon.jobs.WebItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Item interface to web resources.</p>
+</dd></dl>
+
 </div>
+<div class="section" id="clerks">
+<h2>Clerks<a class="headerlink" href="#clerks" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="kecleon.jobs.FileClerk">
+<em class="property">class </em><code class="sig-prename descclassname">kecleon.jobs.</code><code class="sig-name descname">FileClerk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">bytes</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kecleon.jobs.FileClerk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clerk for reading from the file system.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="kecleon.jobs.Zip7Clerk">
+<em class="property">class </em><code class="sig-prename descclassname">kecleon.jobs.</code><code class="sig-name descname">Zip7Clerk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">warn</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#kecleon.jobs.Zip7Clerk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clerk for reading from a 7z archive.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="kecleon.jobs.WebClerk">
+<em class="property">class </em><code class="sig-prename descclassname">kecleon.jobs.</code><code class="sig-name descname">WebClerk</code><a class="headerlink" href="#kecleon.jobs.WebClerk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clerk for reading from a web resource.</p>
+</dd></dl>
+
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </div>
 
 
@@ -183,8 +204,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="main.html" class="btn btn-neutral float-right" title="Main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="base.html" class="btn btn-neutral float-left" title="Base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

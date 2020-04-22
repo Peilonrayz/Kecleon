@@ -1,5 +1,4 @@
 Main
 ====
 
-.. automodule:: skeleton_py
-   :members:
+.. automodule:: kecleon
